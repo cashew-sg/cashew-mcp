@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "sg.cashew/mcp",
+  "title": "Cashew MCP",
+  "description": "Singapore mortgage rates, bank packages and calculators (23 read-only tools)",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.cashew.sg/intro-to-mcp",
+  "repository": { "url": "https://github.com/cashew-sg/cashew-mcp", "source": "github" },
+  "remotes": [{ "type": "streamable-http", "url": "https://www.cashew.sg/mcp" }]
+}

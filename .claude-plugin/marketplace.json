@@ -1,0 +1,11 @@
+{
+  "name": "cashew",
+  "owner": { "name": "Cashew", "url": "https://www.cashew.sg" },
+  "plugins": [
+    {
+      "name": "cashew-mcp",
+      "source": "./",
+      "description": "Singapore mortgage rates and calculators as MCP tools"
+    }
+  ]
+}
