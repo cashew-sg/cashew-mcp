@@ -1,0 +1,48 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this repo is
+
+This is a distribution-only repo for the Cashew MCP server. It has no server code, build, or tests. The server is hosted remotely at `https://www.cashew.sg/mcp` (streamable HTTP, no API key). This repo holds only the manifests that let clients discover and install that remote server, plus the public README.
+
+The server's source lives in the `cashew` monorepo (a sibling checkout, `../cashew`), under `services/rate-engine/src/mcp/`. That code is the source of truth for everything this repo describes:
+- `server.ts`: `serverInfo()` holds the server name, version, title and icons. `PROTECTED_TOOL_NAMES` lists the tools that need sign-in. The `registerTool` calls, plus the shared calculator catalog in `packages/lib-types/src/rate-engine/calculator.catalog.ts`, make up the tool list.
+- `server-card.ts`: the SEP-2127 server card served at `https://www.cashew.sg/mcp/server-card`, which the site's `/.well-known/ai-catalog.json` points to. The card reads its name and version from `serverInfo()`.
+
+## How the manifests fit together
+
+Each file serves a different distribution channel, and all of them point at the same remote URL:
+
+- `.mcp.json`: the MCP server definition that Claude Code loads when the plugin is installed (`"type": "http"`).
+- `.claude-plugin/plugin.json`: the Claude Code plugin metadata. The plugin is named `cashew-mcp`.
+- `.claude-plugin/marketplace.json`: makes this repo a Claude Code marketplace named `cashew`, with a single plugin whose `source` is the repo root (`./`). That is why users install it with `claude plugin marketplace add cashew-sg/cashew-mcp` and then `claude plugin install cashew-mcp@cashew`.
+- `server.json`: the entry for the official MCP Registry (schema `2025-12-11`, name `sg.cashew/mcp`, remote type `streamable-http`). It is published and live in the Registry.
+- `README.md`: the public docs. Its tool list is the human-facing catalogue.
+
+When you change any of these, keep them consistent with each other:
+- The server URL, repo URL (`github.com/cashew-sg/cashew-mcp`), homepage (`/intro-to-mcp`), and privacy URL.
+- The plugin name `cashew-mcp` and marketplace name `cashew`. These appear in the install commands in the README.
+- The tool list in `README.md` and the server's registered tools (23 at the time of writing). The README has fallen behind before. If the server is connected in your session, its `mcp__cashew__*` tools show the current list.
+- `server.json`'s `name` and `version` must match `serverInfo()` in `server.ts`, because the server card reports that name and version. `plugin.json`'s `version` follows the same number. The Registry rejects a second publish of an existing version, so bump all three together before you republish.
+- `server.json`'s `description` and `icons` mirror the server card. The Registry caps the description at 100 characters.
+
+## Validating changes
+
+There is nothing to build. To check the plugin and marketplace manifests, run:
+
+```
+claude plugin validate .
+```
+
+The validator warns that `CLAUDE.md` at the plugin root is not loaded as plugin context. That is expected, because this file is for people working on the repo, not for plugin users.
+
+To check the live server end to end, install the plugin locally (or rely on `.mcp.json`) and call one of the no-auth tools, such as `list_banks`.
+
+## Domain conventions (for README and tool copy)
+
+- All amounts are in SGD.
+- Interest rates passed in to calculators are whole-number percentages (`3.5` means 3.5% p.a.). Rates returned by `calculate_package_schedule` and `get_index_quotes` are decimal fractions (`0.0356`).
+- All tools are read-only, and the server is stateless.
+- `recommend_packages` and `get_property_valuation` require the user to sign in with a Cashew account. All other tools work without authentication.
+- README voice: British spelling ("amortisation"), short benefit-led sentences, no em dashes in prose.

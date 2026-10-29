@@ -1,6 +1,7 @@
 {
   "name": "cashew",
   "owner": { "name": "Cashew", "url": "https://www.cashew.sg" },
+  "description": "Cashew's Claude Code plugins: Singapore mortgage rates and calculators as MCP tools",
   "plugins": [
     {
       "name": "cashew-mcp",

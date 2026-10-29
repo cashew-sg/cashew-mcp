@@ -43,6 +43,8 @@ Two tools, `recommend_packages` and `get_property_valuation`, ask you to sign in
 **Mortgage and loan maths.** Turn a borrower profile into ranked packages and hard numbers.
 
 - `recommend_packages`: rank live Singapore mortgage packages for a given borrower profile.
+- `compare_packages`: put two or three specific packages side by side, year by year, with their flexibility terms.
+- `check_eligibility`: TDSR, MSR and maximum loan for up to four borrowers, after MAS income haircuts.
 - `calculate_mortgage_repayment`: monthly repayment, total interest and total cost for a hypothetical loan.
 - `calculate_package_schedule`: full amortisation schedule for a specific package using its actual rate path.
 - `calculate_affordability`: max loan and property price from income and existing commitments.
@@ -55,6 +57,14 @@ Two tools, `recommend_packages` and `get_property_valuation`, ask you to sign in
 - `calculate_seller_stamp_duty`: SSD based on the holding period of the property.
 - `calculate_mortgage_stamp_duty`: duty payable on the loan facility itself.
 - `calculate_rental_stamp_duty`: duty on a lease, from rent and tenure.
+
+**Buying and selling.** Every payment from option to keys, and what's left after a sale.
+
+- `calculate_purchase_cost`: full upfront cost of a purchase, with each line split across cash, CPF and loan.
+- `calculate_hdb_resale_timeline`: dated steps and payments for an HDB resale, from option to key collection.
+- `calculate_private_resale_timeline`: the same for a private resale, with the 1% option fee and 4% exercise payment.
+- `calculate_progressive_payment`: instalments across the build stages of an under-construction property.
+- `calculate_sales_proceeds`: cash a seller walks away with after the loan, CPF refunds and fees.
 
 **Restructuring and investment analysis.** Model the bigger property plays end to end.
 

@@ -1,5 +1,7 @@
 {
   "name": "cashew-mcp",
+  "version": "1.1.0",
+  "license": "Apache-2.0",
   "description": "Singapore mortgage rates, bank packages and calculators as MCP tools",
   "author": { "name": "Cashew", "url": "https://www.cashew.sg" },
   "homepage": "https://www.cashew.sg/intro-to-mcp",
