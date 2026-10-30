@@ -37,7 +37,9 @@ There is nothing to build. To check the plugin and marketplace manifests, run:
 claude plugin validate .
 ```
 
-The validator warns that `CLAUDE.md` at the plugin root is not loaded as plugin context. That is expected, because this file is for people working on the repo, not for plugin users.
+This file lives at `.claude/CLAUDE.md` rather than the repo root. A root `CLAUDE.md` makes the validator and the plugin directory warn that it is not loaded as plugin context. Claude Code still loads it from `.claude/` for people working on the repo.
+
+`claude plugin validate .` should then pass with nothing to report. Keep `privacyPolicyUrl` in `.claude-plugin/plugin.json`: without it the validator raises `PRIVACY_URL_MISSING`. The plugin directory's own checks still show two warnings, and both fields stay. It flags `icon` as a field from another tool's manifest, but it reads `icon` for the listing. It may also flag `privacyPolicyUrl` as an unrecognised field, even though the local validator asks for it.
 
 To check the live server end to end, install the plugin locally (or rely on `.mcp.json`) and call one of the no-auth tools, such as `list_banks`.
 
