@@ -23,8 +23,9 @@ Each file serves a different distribution channel, and all of them point at the 
 - `README.md`: the public docs. Its tool list is the human-facing catalogue.
 
 When you change any of these, keep them consistent with each other:
-- The server URL, repo URL (`github.com/cashew-sg/cashew-mcp`), homepage (`/intro-to-mcp`), and privacy URL.
+- The server URL, repo URL (`github.com/cashew-sg/cashew-mcp`), homepage and documentation (`/intro-to-mcp`), support (`/contact`), privacy (`/privacy`) and terms (`/terms`) URLs. The Claude `plugin.json` holds all of them as `homepage`, `documentationUrl`, `supportUrl`, `privacyPolicyUrl` and `termsOfServiceUrl`, and the plugin directory shows them in its Links panel.
 - The plugin name `cashew-mcp` and marketplace name `cashew`. These appear in the install commands in the README.
+- The `keywords` in both `plugin.json` files (Claude and Cursor), and the Claude `displayName` (`Cashew MCP`), which matches `title` in `serverInfo()` and in `server.json`.
 - The tool list in `README.md` and the server's registered tools (23 at the time of writing). The README has fallen behind before. If the server is connected in your session, its `mcp__cashew__*` tools show the current list.
 - `server.json`'s `name` and `version` must match `serverInfo()` in `server.ts`, because the server card reports that name and version. Both `plugin.json` files (Claude and Cursor) follow the same version number. The Registry rejects a second publish of an existing version, so bump all four together before you republish.
 - `server.json`'s `description` and `icons` mirror the server card. The Registry caps the description at 100 characters.
@@ -39,7 +40,7 @@ claude plugin validate .
 
 This file lives at `.claude/CLAUDE.md` rather than the repo root. A root `CLAUDE.md` makes the validator and the plugin directory warn that it is not loaded as plugin context. Claude Code still loads it from `.claude/` for people working on the repo.
 
-`claude plugin validate .` should then pass with nothing to report. Keep `privacyPolicyUrl` in `.claude-plugin/plugin.json`: without it the validator raises `PRIVACY_URL_MISSING`. The plugin directory's own checks still show two warnings, and both fields stay. It flags `icon` as a field from another tool's manifest, but it reads `icon` for the listing. It may also flag `privacyPolicyUrl` as an unrecognised field, even though the local validator asks for it.
+`claude plugin validate .` should then pass with nothing to report. Keep `privacyPolicyUrl` in `.claude-plugin/plugin.json`: without it the validator raises `PRIVACY_URL_MISSING`. The plugin directory's own checks may flag `icon`, `displayName` and the link fields (`documentationUrl`, `supportUrl`, `privacyPolicyUrl`, `termsOfServiceUrl`) as fields Claude Code does not recognise. Keep them all: the directory reads them for the listing and its Links panel.
 
 To check the live server end to end, install the plugin locally (or rely on `.mcp.json`) and call one of the no-auth tools, such as `list_banks`.
 
