@@ -25,7 +25,7 @@ Each file serves a different distribution channel, and all of them point at the 
 When you change any of these, keep them consistent with each other:
 - The server URL, repo URL (`github.com/cashew-sg/cashew-mcp`), homepage and documentation (`/intro-to-mcp`), support (`/contact`), privacy (`/privacy`) and terms (`/terms`) URLs. The Claude `plugin.json` holds all of them as `homepage`, `documentationUrl`, `supportUrl`, `privacyPolicyUrl` and `termsOfServiceUrl`, and the plugin directory shows them in its Links panel.
 - The plugin name `cashew-mcp` and marketplace name `cashew`. These appear in the install commands in the README.
-- The `keywords` in both `plugin.json` files (Claude and Cursor), and the Claude `displayName` (`Cashew MCP`), which matches `title` in `serverInfo()` and in `server.json`.
+- The `keywords` in both `plugin.json` files (Claude and Cursor), and the Claude `displayName` (`Cashew`), which matches `title` in `serverInfo()` and in `server.json`.
 - The tool list in `README.md` and the server's registered tools (23 at the time of writing). The README has fallen behind before. If the server is connected in your session, its `mcp__cashew__*` tools show the current list.
 - `server.json`'s `name` and `version` must match `serverInfo()` in `server.ts`, because the server card reports that name and version. Both `plugin.json` files (Claude and Cursor) follow the same version number. The Registry rejects a second publish of an existing version, so bump all four together before you republish.
 - `server.json`'s `description` and `icons` mirror the server card. The Registry caps the description at 100 characters.

@@ -1,8 +1,8 @@
-# Cashew MCP
+# Cashew
 
 **Give your agent Singapore's mortgage brain.**
 
-The Cashew MCP exposes our live rate engine as callable tools, the same engine behind [cashew.sg](https://www.cashew.sg). Rank real bank packages, run stamp-duty and affordability maths, and model restructuring plays, all from inside your own agent.
+Cashew's MCP server exposes our live rate engine as callable tools, the same engine behind [cashew.sg](https://www.cashew.sg). Rank real bank packages, run stamp-duty and affordability maths, and model restructuring plays, all from inside your own agent.
 
 Every figure is computed against bank rates synced daily, the same numbers Cashew shows its own customers. All major Singapore banks. HDB, private and commercial. Fixed and floating (SORA).
 
