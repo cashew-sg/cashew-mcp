@@ -3,7 +3,7 @@
   "name": "sg.cashew/mcp",
   "title": "Cashew",
   "description": "Live Singapore mortgage rates, package recommendations and home-loan calculators.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "websiteUrl": "https://www.cashew.sg/intro-to-mcp",
   "repository": { "url": "https://github.com/cashew-sg/cashew-mcp", "source": "github" },
   "icons": [
