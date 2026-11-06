@@ -1,7 +1,5 @@
 # Cashew
 
-[![M8ven Score](https://m8ven.ai/badge/mcp/cashew-sg-cashew-mcp-1uihl1?v=da1c570a88ee8a3ec78a946808f5c4f3)](https://m8ven.ai/mcp/cashew-sg-cashew-mcp-1uihl1?s=readme)
-
 **Give your agent Singapore's mortgage brain.**
 
 Cashew's MCP server exposes our live rate engine as callable tools, the same engine behind [cashew.sg](https://www.cashew.sg). Rank real bank packages, run stamp-duty and affordability maths, and model restructuring plays, all from inside your own agent.
@@ -87,3 +85,5 @@ Full details and a live playground: https://www.cashew.sg/intro-to-mcp
 - Amounts are in Singapore dollars.
 - Free while in beta. Building something with it? Tell us at support@cashew.sg.
 - [Privacy](https://www.cashew.sg/privacy) · [Terms](https://www.cashew.sg/terms)
+
+[![M8ven Score](https://m8ven.ai/badge/mcp/cashew-sg-cashew-mcp-1uihl1?v=56837c953bb1dd189c1dfc130b465014)](https://m8ven.ai/mcp/cashew-sg-cashew-mcp-1uihl1?s=readme)
