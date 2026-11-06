@@ -86,4 +86,4 @@ Full details and a live playground: https://www.cashew.sg/intro-to-mcp
 - Free while in beta. Building something with it? Tell us at support@cashew.sg.
 - [Privacy](https://www.cashew.sg/privacy) · [Terms](https://www.cashew.sg/terms)
 
-[![M8ven Score](https://m8ven.ai/badge/mcp/cashew-sg-cashew-mcp-1uihl1?v=56837c953bb1dd189c1dfc130b465014)](https://m8ven.ai/mcp/cashew-sg-cashew-mcp-1uihl1?s=readme)
+[![M8ven Score](https://m8ven.ai/badge/mcp/cashew-sg/cashew-mcp)](https://m8ven.ai/mcp/cashew-sg/cashew-mcp?s=readme)
